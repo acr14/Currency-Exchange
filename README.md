@@ -1,7 +1,9 @@
 # Currency Exchange App
 
 This project was built quickly as a portfolio project.
+
 The project is meant to show that I have an understanding of how ReactJS works including the creation of components, arrow functions as well as how to interact with an API.
+
 This project utilizes the opensource API, coindesk to fetch uptodate trading rates between bitcoin and fiat currency (USD, GBP, EUR).
 It allows you to calculate an amount of currency from:
 - Fiat to BTC
