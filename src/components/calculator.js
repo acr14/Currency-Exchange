@@ -21,56 +21,52 @@ class Calculator extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+    /*
+     * @desc Handle changes coming from the starting currency form input. On change toCurrency state.
+     */
 	handleToCurrency(event) {
 		let value = event.target.value;
-		console.log(value, "currency handler")
 		this.setState({
 			toCurrency: value
-		}, () => {
-			console.log(this.state, "setState callback")
 		})
-		console.log(JSON.stringify(this.state))
-		console.log(Object.values(this.state.bpi), "bpi string")
 	};
 
+    /*
+     * @desc Handle changes coming from the ending currency form input. On change fromCurrency state.
+     */
 	handleFromCurrency(event) {
 		let value = event.target.value;
-		console.log(value, "currency handler")
 		this.setState({
 			fromCurrency: value
-		}, () => {
-			console.log(this.state, "setState callback")
 		})
-		console.log(JSON.stringify(this.state))
-		console.log(Object.values(this.state.bpi), "bpi string")
-		
 	};
 
+    /*
+     * @desc Handle changes made to the transfer amount form input. On change set state property "amount"
+    */
     handleAmount(event) {
         event.preventDefault();
         let value = event.target.value;
-        console.log(value, "This is how much I want to transfer");
         this.setState({
             amount: value
-        }, () => {
-            console.log(this.state, "setState amount callback")
         });
     };
 
+    /*
+     * @desc Handle form submission calling calculate form and setting state property "transferTotal".
+    */
     handleSubmit(event) {
         event.preventDefault();
         this.setState({
             transferTotal: this.calculate()
         })
-
-        console.log(this.state.transferTotal);
-        let value = event.target.value;
-        console.log(value, "handle submit");
-        console.log(event, "handle submit event")
     };
 
+    /*
+    * @desc Handles the calculation of the currency exchange. I.e. BTC to USD
+    * @returns Returns: Number - The new converted value in the target currency.
+    */
     calculate = () => {
-        console.log(this.props);
         const from = this.state.fromCurrency;
         const to = this.state.toCurrency;
         const amt = this.state.amount;
@@ -99,14 +95,12 @@ class Calculator extends React.Component {
                                 <label>Starting Currency</label>
                             </span>
                             <select className="form-select" defaultValue={"BTC"} onChange={(e) => this.handleFromCurrency(e)}>
-                                {/* <option>From</option> */}
                                 <option value="BTC">BTC</option>
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
                                 <option value="GBP">GBP</option>
                             </select>
                         </div>
-                        {/* <textarea onChange={(e) => this.handleAmount(e)}></textarea> */}
                         <div className="col-lg-4 order-3 order-lg-2 d-flex align-items-end">
                             <div className="input-group">
                                 <input 
@@ -130,7 +124,6 @@ class Calculator extends React.Component {
                                 <label>Transferred Currency</label>
                             </span>
                             <select className="form-select" defaultValue={"USD"} onChange={(e) => this.handleToCurrency(e)}>
-                                {/* <option>To</option> */}
                                 <option value="BTC">BTC</option>
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>

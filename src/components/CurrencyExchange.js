@@ -13,14 +13,9 @@ class CurrencyExchange extends React.Component {
         }
     }
 
-    getScriptData = () => {
-        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-            .then((response) => response.json())
-            .then((data) => {
-                this.setState({bpi: data.bpi})
-            });
-    };
-
+    /*
+     * @desc Fetches current javascript prices and adds data to state
+    */
     componentDidMount() {
         fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
             .then((response) => response.json())
