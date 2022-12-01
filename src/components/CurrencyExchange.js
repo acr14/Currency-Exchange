@@ -1,11 +1,11 @@
 import React from "react";
 import parse from 'html-react-parser';
-import Calculator from "./calculator";
+import Calculator from "./Calculator";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-class Script extends React.Component {
+class CurrencyExchange extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -27,18 +27,7 @@ class Script extends React.Component {
             .then((data) => {
                 this.setState({bpi: data.bpi})
             });
-    }
-
-    // componentDidUpdate() {
-    //     fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             console.log(data.bpi)
-    //             console.log("component did update")
-    //             this.setState({bpi: data.bpi})
-    //         });
-    // }
-
+    };
     
     render() {
         return (
@@ -74,4 +63,4 @@ class Script extends React.Component {
     }
 }
 
-export default Script;
+export default CurrencyExchange;
